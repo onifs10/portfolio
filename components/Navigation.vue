@@ -32,7 +32,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .nav-align-center {
   height: 100%;
   display: flex;
