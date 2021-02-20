@@ -2,7 +2,7 @@
   <div class="bg-transparent h-auto header-wrapper">
     <img
       :class="{
-        'shadow-sm border-4 bg-gray-200  border-gray-500': true,
+        'shadow-sm border-4 bg-gray-200 pp border-gray-500': true,
         'profile-photo rounded': page === 'index',
         'profile-photo-project rounded-full': page === 'projects',
         'profile-photo-about rounded-3xl': page === 'about',
@@ -15,15 +15,40 @@
 
 <script>
 import { mapState } from 'vuex'
-
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
 export default {
   computed: {
     ...mapState(['page']),
+  },
+  mounted() {
+    this.headerAnimation()
+  },
+  methods: {
+    headerAnimation() {
+      // ScrollTrigger.create(
+      // })
+
+      gsap.to('.pp', {
+        scrollTrigger: {
+          trigger: '.pp',
+          start: '10px 10px',
+          toggleActions: 'restart  pause reverse none',
+        },
+        opacity: 0,
+        pointerEvents: 'none',
+        duration: 0.3,
+      })
+    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
+.hidden {
+  display: none;
+}
 @mixin group($top, $left) {
   position: absolute;
   top: $top;
@@ -57,7 +82,7 @@ export default {
 
 @media (max-width: 760px) {
   .profile-photo {
-    @include group(50%, 10%);
+    @include group(50px, 10px);
   }
   .profile-photo-about {
     @include group(100px, 10%);

@@ -1,5 +1,5 @@
 <template>
-  <header class="sticky bg-gray-200 top-0 z-40 h-40">
+  <header class="sticky bg-gray-200 top-0 h-40">
     <transition-group name="bk" class="nav-background">
       <div v-if="page == 'index'" key="index" class="h-40 backgroud-1"></div>
       <div
@@ -9,8 +9,7 @@
       ></div>
       <div v-else key="default" class="h-40 background-3"></div>
     </transition-group>
-
-    <div class="bg-opacity-20 h-32 relative">
+    <div class="bg-opacity-20 h-32 z-40 relative">
       <div class="text-black shadow-sm nav-wrapper h-12">
         <ul class="nav-links">
           <li v-for="key in Navlinks" :key="key.name">
@@ -18,32 +17,13 @@
           </li>
         </ul>
       </div>
-      <Header />
     </div>
-
-    <!-- <transition name="moving" tag="div">
-      <div
-        :class="{
-          'move-index': page == 'index',
-          'image absolute z-50': true,
-          'move-about ': page == 'about',
-          'move-project': page == 'project',
-        }"
-      >
-        test
-      </div>
-    </transition> -->
   </header>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import Header from '@/components/Header.vue'
-
 export default {
-  components: {
-    Header,
-  },
   computed: {
     ...mapState(['page', 'Navlinks']),
   },

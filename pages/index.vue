@@ -22,7 +22,7 @@ export default {
 */
 .container {
   margin: 0 auto;
-  min-height: 100vh;
+  min-height: 200vh;
   display: flex;
   justify-content: center;
   align-items: center;
