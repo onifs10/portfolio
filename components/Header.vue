@@ -7,7 +7,7 @@
         'profile-photo-project rounded-full': page === 'projects',
         'profile-photo-about rounded-3xl': page === 'about',
       }"
-      src="/profile4.jpg"
+      src="/starfish.svg"
       alt="profile-photo"
     />
   </div>
@@ -29,13 +29,16 @@ export default {
   top: $top;
   left: $left;
   display: block;
+  object-fit: cover;
   padding: 0.1rem;
   backface-visibility: hidden;
   transform: translateZ(0);
   transition: 0.4s all ease-out;
 }
+
 .profile-photo {
   width: 200px;
+  height: 200px;
   @include group(70px, 150px);
   img {
     border-radius: 4px;
@@ -43,10 +46,12 @@ export default {
 }
 .profile-photo-project {
   width: 50px;
+  height: 50px;
   @include group(70px, 150px);
 }
 .profile-photo-about {
   width: 100px;
+  height: 100px;
   @include group(50px, 150px);
 }
 
