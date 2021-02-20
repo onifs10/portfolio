@@ -43,11 +43,11 @@ export default {
 }
 .profile-photo-project {
   width: 50px;
-  @include group(50px, 150px);
+  @include group(70px, 150px);
 }
 .profile-photo-about {
   width: 100px;
-  @include group(20, 150px);
+  @include group(50px, 150px);
 }
 
 @media (max-width: 760px) {
@@ -55,7 +55,7 @@ export default {
     @include group(50%, 10%);
   }
   .profile-photo-about {
-    @include group(50%, 10%);
+    @include group(100px, 10%);
   }
   .profile-photo-project {
     @include group(50%, 10%);
