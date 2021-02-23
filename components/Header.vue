@@ -46,6 +46,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
 .hidden {
   display: none;
 }
@@ -60,7 +68,6 @@ export default {
   transform: translateZ(0);
   transition: 0.4s all ease-out;
 }
-
 .profile-photo {
   width: 200px;
   height: 200px;
@@ -88,9 +95,10 @@ export default {
     @include group(100px, 10%);
   }
   .profile-photo-project {
-    @include group(50%, 10%);
+    @include group(50px, 10%);
   }
 }
+
 @media (max-width: 460px) {
 }
 </style>

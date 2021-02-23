@@ -18,12 +18,18 @@
         </ul>
       </div>
     </div>
+    <Logo />
   </header>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+import Logo from '@/components/Logo.vue'
+
 export default {
+  components: {
+    Logo,
+  },
   computed: {
     ...mapState(['page', 'Navlinks']),
   },
