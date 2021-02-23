@@ -163,7 +163,7 @@ export default {
       g#body {
         g#body-2 {
           path#inner {
-            fill: greenyellow !important;
+            fill: lightblue !important;
           }
           path#inner-most {
             fill: rgb(215, 240, 137) !important;
