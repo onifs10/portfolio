@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-transparent h-auto header-wrapper">
+  <div class="bg-transparent">
     <img
       :class="{
         'shadow-sm border-4 bg-gray-200 pp border-gray-500': true,
@@ -61,11 +61,9 @@ export default {
   position: absolute;
   top: $top;
   left: $left;
-  display: block;
   object-fit: cover;
   padding: 0.1rem;
   backface-visibility: hidden;
-  transform: translateZ(0);
   transition: 0.4s all ease-out;
 }
 .profile-photo {
@@ -100,5 +98,9 @@ export default {
 }
 
 @media (max-width: 460px) {
+  .profile-photo {
+    width: 70px;
+    height: 70px;
+  }
 }
 </style>

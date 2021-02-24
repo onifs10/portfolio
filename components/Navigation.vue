@@ -16,6 +16,19 @@
             <nuxt-link :to="key.route" exact>{{ key.name }}</nuxt-link>
           </li>
         </ul>
+
+        <div @click="menuOpened = !menuOpened">
+          <icon-base
+            class="menu"
+            icon-name="menu"
+            icon-color="white"
+            width="28"
+            height="28"
+          >
+            <icon-dropdown />
+          </icon-base>
+        </div>
+        <nav-dropdown :menu-opened="menuOpened" />
       </div>
     </div>
     <Logo />
@@ -25,13 +38,77 @@
 <script>
 import { mapState } from 'vuex'
 import Logo from '@/components/Logo.vue'
-
+import IconBase from '@/components/IconBase.vue'
+import IconDropdown from '@/components/IconDropdown.vue'
+import NavDropdown from '@/components/NavDropdown.vue'
+import gsap from 'gsap'
 export default {
   components: {
+    NavDropdown,
+    IconDropdown,
+    IconBase,
     Logo,
+  },
+  data() {
+    return {
+      menuOpened: false,
+    }
   },
   computed: {
     ...mapState(['page', 'Navlinks']),
+  },
+  watch: {
+    menuOpened(newValue) {
+      if (newValue) {
+        this.dropdownOpen()
+      } else {
+        this.dropdownClose()
+      }
+    },
+  },
+  methods: {
+    dropdownOpen() {
+      const tl = gsap.timeline()
+      tl.to('.dropdown-first', {
+        duration: 0.02,
+        translateY: 2,
+        fill: 'lightgreen',
+      })
+      tl.to('.dropdown-first', { duration: 0.02, delay: 0.02, translateY: -2 })
+      tl.to('.dropdown-middle', {
+        duration: 0.02,
+        delay: 0.04,
+        translateY: 2,
+        fill: 'lightgreen',
+      })
+      tl.to('.dropdown-middle', { duration: 0.02, delay: 0.06, translateY: -2 })
+      tl.to('.dropdown-last', {
+        duration: 0.02,
+        delay: 0.08,
+        translateY: 2,
+        fill: 'lightgreen',
+      })
+      tl.to('.dropdown-last', { duration: 0.02, delay: 0.1, translateY: -2 })
+    },
+    dropdownClose() {
+      const tl = gsap.timeline()
+      tl.to('.dropdown-last', { duration: 0.02, translateY: 2, fill: 'white' })
+      tl.to('.dropdown-last', { duration: 0.02, delay: 0.02, translateY: -2 })
+      tl.to('.dropdown-middle', {
+        duration: 0.02,
+        delay: 0.04,
+        translateY: 2,
+        fill: 'white',
+      })
+      tl.to('.dropdown-middle', { duration: 0.02, delay: 0.06, translateY: -2 })
+      tl.to('.dropdown-first', {
+        duration: 0.02,
+        delay: 0.08,
+        translateY: 2,
+        fill: 'white',
+      })
+      tl.to('.dropdown-first', { duration: 0.02, delay: 0.1, translateY: -2 })
+    },
   },
 }
 </script>
@@ -119,11 +196,19 @@ ul {
 .move-about {
   transform: translateX(200px) scale(3);
 }
+.menu {
+  position: absolute;
+  top: 10px;
+  right: 50px;
+}
 @media (max-width: 760px) {
 }
 @media (max-width: 460px) {
   .nav-links {
     display: none;
+  }
+  .menu {
+    right: 20px;
   }
 }
 </style>

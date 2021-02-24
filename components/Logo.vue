@@ -11,8 +11,10 @@
         class="avocado"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 223.72 260.9"
+        aria-labelledby="logo"
+        role="presentation"
       >
-        <title>avocado</title>
+        <title>avocado Logo</title>
         <g id="body">
           <g id="body-2" data-name="body">
             <path
@@ -124,7 +126,6 @@
 
 <script>
 import { mapState } from 'vuex'
-
 export default {
   computed: {
     ...mapState(['page']),
