@@ -140,6 +140,7 @@ export default {
   height: 50px;
   top: 50px;
   right: 50px;
+  transition: 0.5s 1s;
   transform-origin: 50% 50%;
   svg.avocado {
     g#body {
@@ -160,6 +161,8 @@ export default {
     }
   }
   &.project {
+    width: 70px;
+    height: 70px;
     svg.avocado {
       g#body {
         g#body-2 {
