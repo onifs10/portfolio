@@ -179,6 +179,9 @@ ul {
         text-decoration: none;
       }
     }
+    &:last-child {
+      border-right: none;
+    }
   }
 }
 .nuxt-link-active {
